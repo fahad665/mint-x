@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy MintX Website</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #4ade80, #38bdf8);
+      background-size: 400% 400%;
+      animation: bgAnim 15s ease infinite;
+      color: white;
+      padding: 2em;
+    }
+    @keyframes bgAnim {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+      font-size: 3em;
+      color: #4ade80;
+      text-shadow: 0 0 15px #4ade80;
+    }
+    .plans {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2em;
+      margin-top: 3em;
+    }
+    .plan {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #38bdf8;
+      border-radius: 20px;
+      padding: 2em;
+      width: 280px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+    .plan:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(74, 222, 128, 0.6);
+    }
+    .plan h2 {
+      font-size: 1.8em;
+      margin-bottom: 0.5em;
+    }
+    .price {
+      font-size: 2em;
+      color: #facc15;
+      margin: 1em 0;
+    }
+    .features {
+      list-style: none;
+      padding-left: 1em;
+      font-size: 0.95em;
+    }
+    .features li {
+      margin-bottom: 0.5em;
+    }
+    .recommended {
+      position: absolute;
+      top: -1em;
+      right: -1em;
+      background: #4ade80;
+      color: #0f172a;
+      padding: 0.4em 0.8em;
+      font-size: 0.8em;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #4ade80;
+    }
+    .pay-btn {
+      background-color: #4ade80;
+      color: #0f172a;
+      border: none;
+      padding: 0.6em 1.2em;
+      border-radius: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: #1e293b;
+      padding: 2em;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 300px;
+    }
+    .popup-content img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+    .popup-content button {
+      background-color: #f43f5e;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    #upiLink {
+      display: inline-block;
+      background-color: #38bdf8;
+      color: #0f172a;
+      padding: 0.5em 1em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Buy MintX Website</h1>
+  <div class="plans">
+    <div class="plan">
+      <h2>Basic</h2>
+      <div class="price">₹799</div>
+      <ul class="features">
+        <li>Basic Ad Wall Design</li>
+        <li>Countdown Feature</li>
+        <li>Single Page Setup</li>
+      </ul>
+      <button class="pay-btn" onclick="openPopup(799)">Pay Now</button>
+    </div>
+    <div class="plan">
+      <h2>Pro</h2>
+      <div class="price">₹2,999</div>
+      <ul class="features">
+        <li>Professional UI & Loader</li>
+        <li>Animations + Flowers</li>
+        <li>Data Page Integration</li>
+        <li>Optimized for Monetization</li>
+      </ul>
+      <div class="recommended">Most Popular</div>
+      <button class="pay-btn" onclick="openPopup(2999)">Pay Now</button>
+    </div>
+    <div class="plan">
+      <h2>Ultimate</h2>
+      <div class="price">₹4,999</div>
+      <ul class="features">
+        <li>All Pro Features</li>
+        <li>Custom Pages + Admin Panel</li>
+        <li>Client Support & Updates</li>
+        <li>Hosting & Setup Guidance</li>
+      </ul>
+      <button class="pay-btn" onclick="openPopup(4999)">Pay Now</button>
+    </div>
+  </div>
+
+  <div class="popup" id="paymentPopup">
+    <div class="popup-content">
+      <h2>Scan to Pay</h2>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsAQAAAADwFx1rAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACvklEQVR42u3cMW6CMBBAUaz//2+27eNqgFKr9F07+qUNx9gStwMYZ6UrxFxgDiAIgiAIgiAIgiAIgiAIgj+QhOjeeyF/5AXZg7Anj3us1A08+3ZwEyqSfwzqcc3WOpzP3HM9RlZ1kFvQp2DhZ7N0nsfjvpF2nrr6Pgu/uYhrl22tZbHOH3yffx9ULPdHGPMP36CTq8mAjLuMXkUGq34v7HjWknOtWoLzByFn2Edhqlz7Ot0skP7gWkU5Ln2cZ/vO7G2k/mPto3vrBLbgjI8UMaBpaF3+1Zshyz5prbHzm2o4Eyd2Pf4M8WfqgvJ1cf1+5rD5Yj3zLXYmLujBtb3p4Y5HRGox0U0bFb89aW61s/lwuxKN9IXeLKPv6+1Aq+Rx38mQebphPEw5l+C3OQpTRdZ9+Mp9zD7T0zY3KXT5jJjHjTV44hU/V59QkhLTHyRh8KxU++r2lqqGU4syUXjAVu6aqLbReGnxkGOK4S3mmclcE4HDLuhxe4ffS+J/RXp2e4GMpovkQ7Ed+J9EbWjqkHuhDXXU25dDyd+jN6ZX16XfF+T70Qz5qvFl8v0RWY02Rvlr6nYxZm7L4TfWhfN4bYc4AgCIIgCIIgCIIgCIIgCIIgiP8AfAr03XkNRMEAAAAASUVORK5CYII=" alt="Fampay QR Code" />
+      <a id="upiLink" href="#" target="_blank">Or click here to pay using UPI app</a><br>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(amount) {
+      const popup = document.getElementById('paymentPopup');
+      const upiLink = `upi://pay?pa=9431534228@fam&pn=MintX%20Website&cu=INR&am=${amount}`;
+      document.getElementById('upiLink').href = upiLink;
+      popup.style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('paymentPopup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

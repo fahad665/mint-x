@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MintX Payment</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: white;
+      margin: 0;
+      padding: 2em;
+    }
+    h1 {
+      text-align: center;
+      color: #4ade80;
+    }
+    .plans {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2em;
+      margin-top: 2em;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5em;
+      width: 250px;
+      box-shadow: 0 0 10px #0ea5e9;
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+    .price {
+      font-size: 1.2em;
+      color: #fbbf24;
+      margin: 0.5em 0 1em;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.6em;
+      margin: 0.5em 0;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #38bdf8;
+      color: #0f172a;
+      padding: 0.6em 1em;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 0.5em;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background-color: #4ade80;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your MintX Plan</h1>
+  <div class="plans">
+    <!-- Basic Plan -->
+    <div class="card">
+      <h2>Basic Plan</h2>
+      <div class="price">₹799</div>
+      <input type="text" id="utrBasic" placeholder="Enter your UTR ID" />
+      <button onclick="submitUTR('₹799', 'Basic Plan', 'utrBasic')">Submit</button>
+    </div>
+
+    <!-- Pro Plan -->
+    <div class="card">
+      <h2>Pro Plan</h2>
+      <div class="price">₹2,999</div>
+      <input type="text" id="utrPro" placeholder="Enter your UTR ID" />
+      <button onclick="submitUTR('₹2,999', 'Pro Plan', 'utrPro')">Submit</button>
+    </div>
+
+    <!-- Ultimate Plan -->
+    <div class="card">
+      <h2>Ultimate Plan</h2>
+      <div class="price">₹4,999</div>
+      <input type="text" id="utrUltimate" placeholder="Enter your UTR ID" />
+      <button onclick="submitUTR('₹4,999', 'Ultimate Plan', 'utrUltimate')">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    async function submitUTR(amount, plan, inputId) {
+      const utr = document.getElementById(inputId).value.trim();
+      if (!utr) return alert('Please enter your UTR ID.');
+
+      try {
+        const res = await fetch('http://localhost:3000/confirm', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ utr, plan })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+          window.location.href = '/success.html';
+        } else {
+          alert('Submission failed: ' + (data.message || 'Unknown error'));
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Network error, please try again.');
+      }
+    }
+  </script>
+</body>
+</html>
